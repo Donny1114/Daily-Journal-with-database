@@ -104,7 +104,9 @@ app.get("/contact", function(req, res) {
 //   res.render("compose");
 // });
 
-
+// if(process.env.NODE_ENV === "production"){
+//
+// }
 
 
 let port = process.env.PORT;
