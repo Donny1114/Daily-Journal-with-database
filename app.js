@@ -1,6 +1,6 @@
 //jshint esversion:6
-const dotenv = require('dotenv')
-dotenv.config({path:__dirname+'/.env'});
+require ('dotenv'). config ();
+const source = process.env.DB_CONNECTION;
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
