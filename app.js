@@ -1,5 +1,6 @@
 //jshint esversion:6
 require ('dotenv'). config ();
+const uri = process.env.MONGODB_URI;
 const source = process.env.DB_CONNECTION;
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -23,9 +24,13 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static("public"));
 //Schema
-mongoose.connect(process.env.DB_CONNECTION, {
-  useNewUrlParser: true
-});
+mongoose.connect(
+  process.env.MONGODB_URI || 'mongodb://localhost:27017/blogDB',
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },
+);
 const postSchema = {
   title: String,
   content: String
